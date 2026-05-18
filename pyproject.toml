@@ -1,0 +1,58 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "goat-agent"
+version = "0.1.0"
+description = "GOAT Agent — Local-first AI coding agent with multi-provider LLM support (Ollama, OpenAI, Anthropic)"
+readme = "README.md"
+license = {text = "Apache-2.0"}
+requires-python = ">=3.10"
+authors = [
+    {name = "Shivay Singh Rajput", email = "shivaysinghrajputofficial@gmail.com"}
+]
+keywords = ["ai", "agent", "coding", "ollama", "llm", "local-first"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: Apache Software License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Software Development :: Code Generators",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+dependencies = [
+    "typer>=0.12.0",
+    "rich>=13.0.0",
+    "aiohttp>=3.9.0",
+    "openai>=1.30.0",
+    "anthropic>=0.28.0",
+    "pydantic>=2.5.0",
+    "toml>=0.10.2",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0",
+    "pytest-asyncio>=0.23",
+    "ruff>=0.4.0",
+]
+
+[project.scripts]
+goat = "goat_agent.cli:app"
+
+[project.urls]
+Homepage = "https://github.com/Shivay00001/goat-agent"
+Repository = "https://github.com/Shivay00001/goat-agent"
+Issues = "https://github.com/Shivay00001/goat-agent/issues"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["goat_agent*"]
+
+[tool.ruff]
+target-version = "py310"
+line-length = 100
